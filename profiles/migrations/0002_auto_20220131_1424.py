@@ -26,7 +26,6 @@ def import_content_from_old_app(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('oc_lettings_site', '0001_initial'),
         ('profiles', '0001_initial'),
     ]
 
