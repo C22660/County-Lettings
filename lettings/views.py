@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from lettings.models import Letting
 
 
@@ -35,10 +35,11 @@ def index(request):
 # Sed non dolor risus. Mauris condimentum auctor elementum. Donec quis nisi ligula.
 # Integer vehicula tincidunt enim, ac lacinia augue pulvinar sit amet.
 def letting(request, letting_id):
-    letting = Letting.objects.get(id=letting_id)
+    # letting = Letting.objects.get(id=letting_id)
+    # Pour retour avec les tests, ajout de get_object_or_404
+    letting = get_object_or_404(Letting, id=letting_id)
     context = {
         'title': letting.title,
         'address': letting.address,
     }
     return render(request, 'lettings/letting.html', context)
-
