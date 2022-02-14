@@ -40,5 +40,8 @@ workflows:
   main:
     jobs:
       - build
-      - deploy-dev
+      - deploy-dev:
+          context:
+            - c22660
+            - Context Lettings
 
