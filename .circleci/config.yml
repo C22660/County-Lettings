@@ -48,9 +48,9 @@ workflows:
     jobs:
       - build
       - build-docker-image:
-          - context:
-              - c22660
-              - Context Lettings
+          context:
+            - c22660
+            - Context Lettings
       - deploy-dev:
           context:
             - c22660
