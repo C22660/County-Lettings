@@ -3,10 +3,12 @@
 version: 2.1
 
 # Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
-# 
+#
 # See: https://circleci.com/docs/2.0/orb-intro/
 orbs:
   python: circleci/python@1.1.0
+  docker: circleci/docker@2.0.2
+
 jobs:
   build:
     executor: python/default
@@ -40,6 +42,11 @@ workflows:
   main:
     jobs:
       - build
+      - build-docker-image-only:
+          jobs:
+            - docker/publish:
+                deploy: false
+                image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
       - deploy-dev:
           context:
             - c22660
