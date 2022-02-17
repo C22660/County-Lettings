@@ -49,6 +49,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Setup Heroku
+          command: curl https://cli-assets.heroku.com/install.sh | sh # run a script to set up Heroku
+      - run:
           name: Build and push Docker image to Heroku
           command: |
             heroku container:login
