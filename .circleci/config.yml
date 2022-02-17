@@ -42,7 +42,7 @@ jobs:
           docker push $DOCKERHUB_USERNAME/oc-lettings:$TAG
   deploy-dev:
     docker:
-      - image: oc-lettings:$TAG
+      - image: oc-lettings:$CIRCLE_SHA1
         auth:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD
