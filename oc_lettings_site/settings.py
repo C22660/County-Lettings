@@ -20,7 +20,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = int(os.environ.get('DEBUG', default=1))
+# DEBUG = int(os.environ.get('DEBUG', default=0))
+DEBUG = True
 # OU :
 # en debug False si l'environnement est en production "ENV == "production
 # ou rester en debug True si l'environnement est en développement ou est absent,
@@ -28,13 +29,13 @@ DEBUG = int(os.environ.get('DEBUG', default=1))
 # DEBUG =  False if os.environ.get("ENV", "development") == "production" else True
 
 
-if DEBUG:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-else:
-    ALLOWED_HOSTS = ['oc-lettings-15.herokuapp.com']
+# if DEBUG:
+#     ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+# else:
+#     ALLOWED_HOSTS = ['oc-lettings-15.herokuapp.com']
 # OU autorisation des appels depuis herokuapps.com, en plus les appels depuis localhost,
 # en plus ceux depuis 127.0.1 :
-# ALLOWED_HOSTS = ['.herokuapps.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['.herokuapps.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
