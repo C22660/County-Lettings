@@ -41,7 +41,11 @@ jobs:
           echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
           docker push $DOCKERHUB_USERNAME/oc-lettings:$TAG
   deploy-dev:
-    machine: true
+    docker:
+      - image: oc-lettings:$TAG
+        auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
       - run:
@@ -49,8 +53,8 @@ jobs:
           command: |
             sudo curl https://cli-assets.heroku.com/install.sh | sh
             HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:login
-            HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:push -a oc-lettings-15 $DOCKERHUB_USERNAME/oc-lettings
-            HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:release -a oc-lettings-15 $DOCKERHUB_USERNAME/oc-lettings
+            HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:push -a oc-lettings-15
+            HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:release -a oc-lettings-15
 workflows:
   main:
     jobs:
