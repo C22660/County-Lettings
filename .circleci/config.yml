@@ -43,9 +43,10 @@ jobs:
   deploy-dev:
 #    docker:
 #      - image: $DOCKERHUB_USERNAME/oc-lettings:$CIRCLE_SHA1
-##        auth:
-##          username: $DOCKERHUB_USERNAME
-##          password: $DOCKERHUB_PASSWORD
+#        auth:
+#          username: $DOCKERHUB_USERNAME
+#          password: $DOCKERHUB_PASSWORD
+    machine: true
     steps:
       - checkout
       - run:
