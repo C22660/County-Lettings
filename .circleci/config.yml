@@ -42,7 +42,7 @@ jobs:
           docker push $DOCKERHUB_USERNAME/oc-lettings:$TAG
   deploy-dev:
     docker:
-      - image: $DOCKERHUB_USERNAME/oc-lettings:$TAG
+      - image: oc-lettings:$TAG
         auth:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD
@@ -63,8 +63,12 @@ workflows:
           context:
             - c22660
             - Context Lettings
+          requires:
+            - build
       - deploy-dev:
           context:
             - c22660
             - Context Lettings
+          requires:
+            - build-docker-image
 
