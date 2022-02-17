@@ -41,11 +41,6 @@ jobs:
           echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
           docker push $DOCKERHUB_USERNAME/oc-lettings:$TAG
   deploy-dev:
-#    docker:
-#      - image: $DOCKERHUB_USERNAME/oc-lettings:$CIRCLE_SHA1
-#        auth:
-#          username: $DOCKERHUB_USERNAME
-#          password: $DOCKERHUB_PASSWORD
     machine: true
     steps:
       - checkout
@@ -58,6 +53,10 @@ jobs:
             HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:login
             HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:push -a oc-lettings-15 web
             HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:release -a oc-lettings-15 web
+      - run:
+          name: Migrate database
+          command: |
+            heroku run python manage.py migrate
 workflows:
   main:
     jobs:
