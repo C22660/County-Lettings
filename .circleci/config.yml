@@ -37,9 +37,9 @@ jobs:
       # build and push Docker image
       - run: |
           TAG=$CIRCLE_SHA1
-          docker build -t $DOCKER_USER/oc-lettings:$TAG .
-          echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-          docker push $DOCKER_USER/oc-lettings:$TAG
+          docker build -t $DOCKERHUB_USERNAME/oc-lettings:$TAG .
+          echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
+          docker push $DOCKERHUB_USERNAME/oc-lettings:$TAG
   deploy-dev:
     machine: true
     steps:
