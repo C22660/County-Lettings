@@ -37,9 +37,9 @@ jobs:
       # build and push Docker image
       - run: |
           TAG=$CIRCLE_SHA1
-          docker build -t c22660/County-Lettings-Image:$TAG .
+          docker build -t $DOCKER_USER/$CIRCLE_PROJECT_REPONAME:$TAG .
           echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-          docker push c22660/County-Lettings-Image:$TAG
+          docker push $DOCKER_USER/$CIRCLE_PROJECT_REPONAME:$TAG
   deploy-dev:
     machine: true
     steps:
