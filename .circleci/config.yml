@@ -56,7 +56,7 @@ jobs:
       - run:
           name: Migrate database
           command: |
-            heroku run python manage.py migrate -a oc-lettings-15
+            HEROKU_API_KEY=${HEROKU_TOKEN} heroku run python manage.py migrate -a oc-lettings-15
 workflows:
   main:
     jobs:
