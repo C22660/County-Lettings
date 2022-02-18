@@ -24,7 +24,7 @@ jobs:
           pypi-cache: false
       - run:
           command: |
-            pytest --version
+            pytest
           name: Test
   build-docker-image:
     docker:
