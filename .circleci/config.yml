@@ -8,12 +8,16 @@ workflows:
     jobs:
       - build-test
       - containerization:
+          context:
+            - Context Lettings
           requires:
             - build-test
           filters:
             branches:
               only: main
       - deploy:
+          context:
+            - Context Lettings
           requires:
             - containerization
           filters:
