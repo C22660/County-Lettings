@@ -6,7 +6,7 @@ version: 2.1
 #
 # See: https://circleci.com/docs/2.0/orb-intro/
 orbs:
-  python: circleci/python@1.1.0
+  python: circleci/python@2.0.1
 
 jobs:
   build-tests:
@@ -53,11 +53,11 @@ jobs:
             HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:login
             HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:push -a oc-lettings-15 web
             HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:release -a oc-lettings-15 web
-      - run:
-          name: Migrate database
-          command: |
-            HEROKU_API_KEY=${HEROKU_TOKEN} heroku run python manage.py makemigrations -a oc-lettings-15
-            HEROKU_API_KEY=${HEROKU_TOKEN} heroku run python manage.py migrate -a oc-lettings-15
+#      - run:
+#          name: Migrate database
+#          command: |
+#            HEROKU_API_KEY=${HEROKU_TOKEN} heroku run python manage.py makemigrations -a oc-lettings-15
+#            HEROKU_API_KEY=${HEROKU_TOKEN} heroku run python manage.py migrate -a oc-lettings-15
 #      - run:
 #          name: Migrate data from sqlite to Postresql
 #          command: |
