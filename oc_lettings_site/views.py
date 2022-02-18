@@ -13,4 +13,5 @@ from django.shortcuts import render
 
 
 def index(request):
+    division_by_zero = 1 / 0
     return render(request, 'index.html')
