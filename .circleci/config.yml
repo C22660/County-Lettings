@@ -75,7 +75,7 @@ workflows:
             - build-tests
           filters: # Dockerize only the main branch
             branches:
-              only: main
+              only: master
       - deploy-dev:
           context:
             - Context Lettings
@@ -83,5 +83,5 @@ workflows:
             - build-docker-image
           filters: # deploy only the main branch
             branches:
-              only: main
+              only: master
 
