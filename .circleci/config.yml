@@ -62,7 +62,7 @@ jobs:
           command: |
             HEROKU_API_KEY=${HEROKU_TOKEN} heroku run python manage.py -a oc-lettings-15 dumpdata > datadump.json
             HEROKU_API_KEY=${HEROKU_TOKEN} heroku run python manage.py migrate -a oc-lettings-15 --run-syncdb
-            HEROKU_API_KEY=${HEROKU_TOKEN} heroku run python manage.py -a oc-lettings-15 loaddata datadump.json
+            HEROKU_API_KEY=${HEROKU_TOKEN} heroku run python manage.py -a oc-lettings-15 loaddata c22660/datadump.json
 
 workflows:
   main:
