@@ -72,7 +72,7 @@ workflows:
           context:
             - Context Lettings
           requires:
-            - build
+            - build-tests
           filters: # Dockerize only the main branch
             branches:
               only: main
