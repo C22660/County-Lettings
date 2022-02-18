@@ -60,9 +60,9 @@ jobs:
       - run:
           name: Migrate data from sqlite to Postresql
           command: |
-            HEROKU_API_KEY=${HEROKU_TOKEN} heroku run python manage.py dumpdata > datadump.json -a oc-lettings-15
+            HEROKU_API_KEY=${HEROKU_TOKEN} heroku run python manage.py -a oc-lettings-15 dumpdata > datadump.json
             HEROKU_API_KEY=${HEROKU_TOKEN} heroku run python manage.py migrate -a oc-lettings-15 --run-syncdb
-            HEROKU_API_KEY=${HEROKU_TOKEN} heroku run python manage.py loaddata datadump.json -a oc-lettings-15
+            HEROKU_API_KEY=${HEROKU_TOKEN} heroku run python manage.py -a oc-lettings-15 loaddata datadump.json
 
 workflows:
   main:
