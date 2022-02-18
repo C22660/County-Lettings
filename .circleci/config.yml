@@ -6,10 +6,10 @@ orbs:
 workflows:
   main:
     jobs:
-      - build-test-linting
+      - build-test
       - containerization:
           requires:
-            - build-test-linting
+            - build-test
           filters:
             branches:
               only: main
@@ -22,7 +22,7 @@ workflows:
 
 
 jobs:
-  build-test-linting:
+  build-test:
     docker:
       - image: cimg/python:3.9.6
     steps:
@@ -32,9 +32,6 @@ jobs:
       - run:
           name: Run tests
           command: pytest
-      - run:
-          name: Run linting
-          command: flake8
   containerization:
     docker:
       - image: cimg/python:3.9.6
