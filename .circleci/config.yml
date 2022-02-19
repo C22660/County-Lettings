@@ -47,7 +47,7 @@ jobs:
           command: |
             docker build -t $DOCKERHUB_USERNAME/oc-lettings:$CIRCLE_SHA1 .
             echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
-            docker push $DOCKERHUB_USERNAME/oc-lettings-lettings:$CIRCLE_SHA1
+            docker push $DOCKERHUB_USERNAME/oc-lettings:$CIRCLE_SHA1
   deploy:
     machine: true
     steps:
