@@ -10,8 +10,8 @@ ENV PYTHONUNBUFFERED 1
 ENV DEBUG 0
 
 # Section 3- Compiler and OS libraries
-RUN apt-get update \
-  && apt-get install -y --no-install-recommends build-essential libpq-dev \
+RUN apk update \
+  && apk add install -y --no-install-recommends build-essential libpq-dev \
   && rm -rf /var/lib/apt/lists/*
 
 # install dependencies
