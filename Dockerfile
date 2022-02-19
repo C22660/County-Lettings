@@ -9,10 +9,6 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 ENV DEBUG 0
 
-# Section 3- Compiler and OS libraries
-RUN apk update \
-  && apk add install -y --no-install-recommends build-essential libpq-dev \
-  && rm -rf /var/lib/apt/lists/*
 
 # install dependencies
 COPY ./requirements.txt .
