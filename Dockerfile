@@ -9,11 +9,10 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 ENV DEBUG 0
 
-# install psycopg2
-RUN apk update \
-    && apk add --virtual build-essential gcc python3-dev musl-dev \
-    && apk add postgresql-dev \
-    && pip install psycopg2
+# Section 3- Compiler and OS libraries
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends build-essential libpq-dev \
+  && rm -rf /var/lib/apt/lists/*
 
 # install dependencies
 COPY ./requirements.txt .
