@@ -14,7 +14,7 @@ workflows:
             - build-test
           filters:
             branches:
-              only: main
+              only: master
       - deploy:
           context:
             - Context Lettings
@@ -22,7 +22,7 @@ workflows:
             - containerization
           filters:
             branches:
-              only: main
+              only: master
 
 
 jobs:
