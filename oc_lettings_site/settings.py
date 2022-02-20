@@ -4,7 +4,6 @@ import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
 import django_heroku
-import dj_database_url
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -20,13 +19,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = int(os.environ.get('DEBUG', default=0))
-
+# DEBUG = int(os.environ.get('DEBUG', default=0))
+# DEBUG = True
 # OU :
-# en debug False si l'environnement est en production "ENV == "production dans les variables d'heroku
-# ou rester en debug True si l'environnement est en développement ou est absent,
-# ("ENV", "development") signifie valeur par défaut de "ENV" == "dévelopment" :
-# DEBUG =  False if os.environ.get("ENV", "development") == "production" else True
+# en debug False si l'environnement est en production
+# "ENV == "production dans les variables d'heroku
+# ou rester en debug True si l'environnement est
+# en développement ou est absent,
+# ("ENV", "development") signifie valeur par défaut de
+# "ENV" == "dévelopment" :
+DEBUG = False if os.environ.get("ENV", "development") == "production" else True
 
 
 # if DEBUG:
