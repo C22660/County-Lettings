@@ -5,7 +5,7 @@ certifi==2021.10.8
 colorama==0.4.4
 dj-database-url==0.5.0
 Django==3.0
-django-heroku==0.3.1
+django-on-heroku==1.1.2
 entrypoints==0.3
 Faker==12.1.0
 flake8==3.7.0
@@ -15,6 +15,7 @@ mccabe==0.6.1
 packaging==21.3
 pluggy==1.0.0
 psycopg2==2.8.6
+psycopg2-binary==2.9.3
 py==1.11.0
 pycodestyle==2.5.0
 pyflakes==2.1.1
