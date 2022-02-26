@@ -96,7 +96,7 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 1. Si ce n'est déjà fait, [créez un compte sur CircleCi](https://circleci.com/ "créez un compte sur CircleCI")
 2. [installation du projet sur CircleCI](https://circleci.com/docs/2.0/getting-started/ "installation du projet sur CircleCI")
 
-### Docker :  
+#### Docker :  
 1. Si ce n'est déjà fait, [créez un compte sur Docker](https://hub.docker.com/signup"créez un compte sur Docker")
 2. Créez en nouveau repository. 
 3. Une fois affectué, remplacez, à la ligne 42 du fichier .circleci/config.yml
